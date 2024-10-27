@@ -4,10 +4,7 @@ class TimeTravelersArchive:
         self.archive = {}
 
     def Store(self, key, value, timestamp):
-        """
-        Stores a key-value pair with associated timestamp.
-        Time Complexity: O(1)
-        """
+       
         if key not in self.archive:
             self.archive[key] = []
         
@@ -17,10 +14,6 @@ class TimeTravelersArchive:
         self.archive[key].sort(key=lambda x: x[0])
 
     def Retrieve(self, key, timestamp):
-        """
-        Retrieves the latest value for a key with timestamp less than or equal to given timestamp.
-        Time Complexity: O(log n) using binary search
-        """
         if key not in self.archive:
             return "empty"
 
@@ -43,9 +36,6 @@ class TimeTravelersArchive:
         return entries[result_idx][1]
 
     def __getattr__(self, name):
-        """
-        Handles calls to undefined methods
-        """
         def method(*args):
             return "Wrong method called, please call Store or Retrieve method"
         return method

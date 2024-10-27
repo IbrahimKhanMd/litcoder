@@ -5,7 +5,7 @@ def alphabetize_odd_numbers(num):
     return ''.join(chr(ord('a') + (int(digit) - 1)) if int(digit) % 2 else digit for digit in str(num))
 
 def solve():
-    input_str = inpt()
+    input_str = input()
     numbers = [cumulative_sum(int(num)) for num in input_str.split()]
     return ''.join(alphabetize_odd_numbers(num) for num in numbers)
 
